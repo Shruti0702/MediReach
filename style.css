@@ -191,11 +191,14 @@ body{
 .get-quote .btn{
 	color:#fff;
 }
+
 .header .logo {
 	float: left;
-	margin-top: 20px;
-	
+	margin-top: 5px;
+	vertical-align: middle;
+	transform: scale(0.7); 
 }
+
 .header .navbar {
 	background: none;
 	box-shadow: none;
