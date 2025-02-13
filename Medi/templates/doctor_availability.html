@@ -1,0 +1,12 @@
+<h2>Available Timings for Dr. {{ doctor.name }}</h2>
+<ul>
+    {% for slot in availability %}
+        <li>
+            Date: {{ slot.date }} <br>
+            Morning: <button class="btn btn-outline-primary">{{ slot.morning_start }} - {{ slot.morning_end }}</button> <br>
+            Evening: <button class="btn btn-outline-primary">{{ slot.evening_start }} - {{ slot.evening_end }}</button>
+        </li>
+    {% empty %}
+        <p>No available slots</p>
+    {% endfor %}
+</ul>

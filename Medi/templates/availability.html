@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Availability</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'availability.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Set Your Availability</h2>
+        <form action="{% url 'availability' %}" method="POST" id="availabilityForm">
+            {% csrf_token %}
+            
+            <!-- Add a field for selecting the date -->
+            <div class="availability-section">
+                <h3>Set Date</h3>
+                <div class="field-group">
+                    <label for="availability_date">Date:</label>
+                    <input type="date" name="availability_date" required>
+                </div>
+            </div>
+        
+            <div class="availability-section">
+                <h3>Morning Availability</h3>
+                <div class="field-group">
+                    <label for="morning_start">From:</label>
+                    <input type="time" name="morning_start" required>
+                    <label for="morning_end">To:</label>
+                    <input type="time" name="morning_end" required>
+                </div>
+            </div>
+        
+            <div class="availability-section">
+                <h3>Evening Availability</h3>
+                <div class="field-group">
+                    <label for="evening_start">From:</label>
+                    <input type="time" name="evening_start" required>
+                    <label for="evening_end">To:</label>
+                    <input type="time" name="evening_end" required>
+                </div>
+            </div>
+
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        
+            <button type="submit">Save Availability</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("availabilityForm");
+            form.addEventListener("submit", function() {
+                setTimeout(function() {
+                    alert("Successfully saved!");
+                }, 50);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

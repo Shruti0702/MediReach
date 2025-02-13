@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Edit Doctor Profile</h1>
+        <form id="ProfileForm" method="POST" action="/" >
+            <!-- Profile Picture -->
+             {% csrf_token %}
+            <div class="form-group">
+                <label for="profilePicture">Profile Picture</label>
+                <input  type="file" id="profilePicture" accept="image/*">
+            </div>
+
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input name="name" type="text" id="name" value="Dr. Michel Jordan" required>
+            </div>
+
+            <!-- Specialization -->
+            <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <input type="text" name="specialization" id="specialization" value="Surgeon">
+            </div>
+
+            <!-- Experience -->
+            <div class="form-group">
+                <label for="experience">Experience</label>
+                <input type="text" id="experience" name="experience" value="1">
+            </div>
+
+          
+
+            <!-- Contact Information -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" value="0123 456 789" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="macy@mail.com" required>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3">35 Blue Area, NY</textarea>
+            </div>
+
+            
+
+            <!-- Save Button -->
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
